@@ -1,7 +1,8 @@
 const Hapi = require('hapi')
 
 const server = Hapi.Server({
-  port: process.env.PORT || 5555
+  port: process.env.PORT || 5555,
+  routes: { cors: true }
 })
 
 const messages = []
@@ -28,8 +29,16 @@ server.route({
       ...request.payload,
       timestamp: Date.now()
     }
-    messages.push(newMessage)
-    return messages
+
+    if (
+      typeof newMessage.name === 'string'
+      && typeof newMessage.message === 'string'
+      && newMessage.name.length > 0
+      && newMessage.message.length > 0
+    ) {
+      messages.push(newMessage)
+    }
+    return ""
   }
 })
 
