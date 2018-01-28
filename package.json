@@ -1,0 +1,11 @@
+{
+  "name": "jitchatapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:raurfang/jitchatserver.git",
+  "author": "Łukasz Wiśniewski <l.wisniewski@xfer.pl>",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^17.2.0"
+  }
+}
